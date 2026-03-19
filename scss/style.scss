@@ -1,0 +1,25 @@
+// ----------------------------------------------
+// ---------------- Main rendering file -----------------
+// ----------------------------------------------
+
+/* ----- Use VENDORS and TOOLS files ----- */
+@use "./vendors/normalize";
+@use "./vendors/choices";
+
+/* ----- Use HELPERS and BASE files ----- */
+@use "./base/helpers";
+@use "./base/common";
+@use "./base/fonts";
+@use "./base/button";
+@use "./base/forms";
+@use "./base/typography";
+@use "./base/overrides";
+
+/* ----- If the project is on wp ----- */
+// @use "./base/wp-reset";
+
+/* ----- Use LAYOUTS Files ----- */
+@use "./layouts";
+
+/* ----- Use COMPONENTS Files ----- */
+@use "./components";

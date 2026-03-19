@@ -1,0 +1,215 @@
+// ----------------------------------------------
+// ---------------- Helpers -----------------
+// ----------------------------------------------
+
+/* ----- Use local files ----- */
+@use "./variables" as vars;
+@use "./functions" as func;
+@use "./mixins";
+
+/* ----- Use built-in sass modules ----- */
+@use "sass:map";
+
+/* ----- Use different tools ----- */
+@use "../tools/include-media";
+
+/* ----- Helper class to reset default button styles ----- */
+.btn-reset {
+	padding: 0;
+	font-family: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	outline: none;
+}
+
+/* ----- Helper class to hide an element visually ----- */
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	border: 0 !important;
+}
+
+/* ----- Helper class for a rounded element ----- */
+.rounded {
+	border-radius: var(--radius);
+}
+
+/* ----- Helper class for a circular element ----- */
+.circular {
+	border-radius: 50%;
+}
+
+/* ----- Helper class center text ----- */
+.text-center {
+	text-align: center;
+}
+
+/* ----- Margin helpers ----- */
+.m-auto {
+	margin: auto;
+}
+
+.mx-auto {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.my-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.mt-auto {
+	margin-top: auto;
+}
+
+.mb-auto {
+	margin-bottom: auto;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+/* ----- Helper classes for text ----- */
+.text {
+	&.upper {
+		text-transform: uppercase;
+	}
+
+	&.center {
+		text-align: center;
+	}
+
+	&.right {
+		text-align: right;
+	}
+
+	/* weight */
+	$weight: (300, 400, 500, 600, 700);
+
+	@each $value in $weight {
+		&._w-#{$value} {
+			font-weight: $value;
+		}
+	}
+
+	/* sizes */
+	$p: map.get(vars.$paragraph, "default");
+
+	@each $name, $value in $p {
+		@if ($name != "default") {
+			&._#{$name} {
+				font-size: var(--p-#{$name}) !important;
+			}
+		}
+	}
+}
+
+/* ----- Helper classes for display properties ----- */
+/* ----- Visibility classes ----- */
+.desktop-hidden {
+	display: none !important;
+
+	@include include-media.media("<=tablet") {
+		display: block !important;
+	}
+}
+
+.desktop-visible {
+	display: none !important;
+
+	@include include-media.media(">=tablet") {
+		display: block !important;
+	}
+}
+
+.mobile-hidden {
+	display: none !important;
+
+	@include include-media.media(">tablet") {
+		display: block !important;
+	}
+}
+
+.mobile-visible {
+	display: none !important;
+
+	@include include-media.media("<tablet") {
+		display: block !important;
+	}
+}
+
+.d-none {
+	display: none !important;
+}
+
+/* ----- Classes to handle sections` paddings ----- */
+.section-py {
+	padding-top: var(--section-pt, 10rem);
+	padding-bottom: var(--section-pb, 10rem);
+
+	@include include-media.media("<desktop") {
+		padding-top: var(--section-tablet-pt, 8rem);
+		padding-bottom: var(--section-tablet-pb, 8rem);
+	}
+
+	@include include-media.media("<tablet") {
+		padding-top: var(--section-phone-pt, 6rem);
+		padding-bottom: var(--section-phone-pb, 6rem);
+	}
+}
+
+/* ----- Utilities for different blend modes ----- */
+.blend-mode-difference {
+	mix-blend-mode: difference;
+}
+
+/* ----- Helper class overflow property ----- */
+.overflow-hidden {
+	overflow: hidden;
+}
+
+/* ----- Helper class for section themselves ----- */
+/* ----- Helper class for elevated (by means of z-index) sections ----- */
+.section-elevated {
+	position: relative;
+	z-index: func.z-index("commonOver");
+}
+
+/* ----- Helper class for white content within sections ----- */
+.content-white {
+	color: var(--color-white);
+
+	h1,
+	.h1,
+	h2,
+	.h2,
+	h3,
+	.h3,
+	h4,
+	.h4,
+	h5,
+	.h5,
+	h6,
+	.h6,
+	.h {
+		color: var(--color-white);
+	}
+
+	svg {
+		&:not(.btn__ico) {
+			fill: var(--color-white);
+		}
+	}
+}

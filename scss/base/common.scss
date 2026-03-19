@@ -1,0 +1,105 @@
+// ----------------------------------------------
+// ---------------- Common -----------------
+// ----------------------------------------------
+
+/* ----- Use local files ----- */
+@use "./variables" as vars;
+@use "./mixins";
+
+/* ----- Use different tools ----- */
+@use "../tools/include-media";
+
+/* ----- Box-sizing for all element ----- */
+* {
+	box-sizing: inherit;
+	// max-height to all
+	max-height: 1000000px;
+
+	&::after,
+	&::before {
+		box-sizing: inherit;
+	}
+}
+
+/* ----- Html ----- */
+html {
+	box-sizing: border-box;
+	padding: constant(safe-area-inset); //iOS 11
+	padding: env(safe-area-inset); //iOS 11.2+
+	font-size: var(--rem-base);
+	//fix iOS bugs reset paddings
+
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+/* ----- Sticky footer ----- */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	min-width: 320px;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.header,
+.footer {
+	flex: 0 0 auto;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+/* ----- Container ----- */
+.container {
+	width: 100%;
+	padding-right: var(--gutter);
+	padding-left: var(--gutter);
+	margin: 0 auto;
+
+	@each $name, $value in vars.$container {
+		@if ($name == "default") {
+			max-width: calc(#{$value} + var(--gutter) * 2);
+		} @else {
+			&--#{$name} {
+				max-width: calc(#{$value} + var(--gutter) * 2);
+			}
+		}
+	}
+
+	@include include-media.media("<1230px") {
+		--gutter: 16px;
+	}
+}
+
+/* ----- Transition none when resize ----- */
+.resize-active {
+	transition: none !important;
+
+	*,
+	*::before,
+	*::after {
+		transition: inherit !important;
+	}
+}
+
+/* ----- Focus visible functionality ----- */
+@include mixins.focus-visible;
+
+.btn {
+	@include mixins.focus-visible {
+		box-shadow: none;
+	}
+}

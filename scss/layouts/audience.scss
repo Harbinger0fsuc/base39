@@ -1,0 +1,111 @@
+/* ----- Use different tools ----- */
+@use "../tools/include-media";
+
+.audience {
+	background-color: var(--color-brown);
+
+	&__inner,
+	&__shapes {
+		display: flex;
+		align-items: center;
+	}
+
+	&__inner {
+		position: relative;
+		justify-content: center;
+		height: 100vh;
+	}
+
+	&__title,
+	&-info {
+		position: absolute;
+		inset-inline-start: 4.4rem;
+		width: 418px;
+		max-width: 100%;
+		color: var(--color-ivory);
+		text-transform: capitalize;
+	}
+
+	&__title {
+		inset-block-start: 3.9rem;
+		margin-bottom: 0;
+		font-size: 3rem;
+		line-height: 1.2;
+	}
+
+	&__number {
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-end: 1.7rem;
+		font-size: 30rem;
+		line-height: 1;
+		color: var(--color-ivory);
+	}
+
+	&-info {
+		inset-block-end: 4.1rem;
+	}
+
+	&-info__title {
+		margin-block-end: 3rem;
+		font-size: 2.2rem;
+		color: inherit;
+	}
+
+	&__shape {
+		position: relative;
+		width: 100%;
+		max-width: 178px;
+		aspect-ratio: 1 / 1;
+
+		&--1 {
+			z-index: 3,
+		}
+
+		&--2 {
+			z-index: 1;
+		}
+
+		&--3 {
+			z-index: 2;
+		}
+
+		svg,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			pointer-events: none;
+		}
+	}
+
+	#line-itself {
+		position: absolute;
+		visibility: hidden;
+	}
+}
+
+@include include-media.media("<926px") {
+	.audience {
+		&__title,
+		&-info {
+			inset-inline-start: 1.7rem;
+		}
+
+		&__title {
+			font-size: 2.2rem;
+		}
+
+		&__number {
+			font-size: 14rem;
+		}
+
+		&-info__title {
+			font-size: 1.8rem;
+		}
+
+		&-info__text {
+			font-size: 1.4rem;
+		}
+	}
+}

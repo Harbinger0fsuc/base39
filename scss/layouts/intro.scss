@@ -1,0 +1,11 @@
+.intro {
+	background-color: var(--color-moss);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		text-align: center;
+	}
+}

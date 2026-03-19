@@ -1,0 +1,204 @@
+// ----------------------------------------------
+// ---------------- Variables -----------------
+// ----------------------------------------------
+/* ----- Common breakpoints ----- */
+/* ----- ligatured operators ≥ ≤ ----- */
+$breakpoints: (
+	"full": 1920px,
+	"xl": 1680px,
+	"macbook": 1440px,
+	"ipad-pro": 1366px,
+	"md-desktop": 1200px,
+	"desktop": 1024px,
+	"tablet": 768px,
+	"phone": 667px,
+	"md-phone": 568px,
+	"sm-phone": 480px,
+	"xs-phone": 375px,
+);
+
+/* ----- Specific media ----- */
+$media-expressions: (
+	"iphoneX": "(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"screen": "screen",
+	"print": "print",
+	"handheld": "handheld",
+	"landscape": "(orientation: landscape)",
+	"portrait": "(orientation: portrait)",
+	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
+);
+
+/* ----- Mobile menu breakpoint ----- */
+// $menu-mobile-breakpoint: 768px;
+
+/* ----- SASS MAPs FOR Z-INDEXs ----- */
+$z-index: (
+	preloader: 80,
+	tooltip: 70,
+	popover: 60,
+	modal: 50,
+	navigation: 40,
+	header: 30,
+	commonOver: 20,
+	common: 10,
+	default: 1,
+	below: -1,
+	pit: -9000,
+);
+
+/* ----- Font family, fonts' folder variables ----- */
+/* ----- These variables are used in fonts.scss ----- */
+$font-root-folder: "../fonts/";
+$primary-font-name: "Hagrid";
+$secondary-font-name: "HagridTrial";
+$accent-font-name: $primary-font-name;
+$font-fallback: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$primary-font: $primary-font-name, $font-fallback;
+$secondary-font: $secondary-font-name, $font-fallback;
+$accent-font: $accent-font-name, $font-fallback;
+
+/* ----- Colors sheme ----- */
+$colors-general: (
+	"primary": #a9472c,
+	"secondary": #758353,
+	"white": #fff,
+	"black": #000,
+	"brown": #312926,
+	"ivory": #f9f0e8,
+	"beige": #e6d2b5,
+	"sand": #d1b296,
+	"rust": #a9472c,
+	"moss": #758353,
+	"gray": #535862,
+);
+
+/* ----- Color use ----- */
+// $colors: func.color-scheme($colors-general);
+
+/* $bodies: func.color-scheme($color-body); */
+
+/* ----- Main menu background-color ----- */
+// $menu-main-bg-color: #f9f9f9;
+
+/* ----- Colors theme ----- */
+/* $color-brand: color('primary', $colors, true); */
+// $btn-bg-color: color("primary", $colors, true);
+
+/* ----- Headers ----- */
+/* name use for media query `<${name}`. See `$breakpoints` variable for a possible key. */
+$headers: (
+	"default": (
+		7rem,
+		5rem,
+		3.5rem,
+		3rem,
+		2.8rem,
+		2.4rem,
+	),
+	"tablet": (
+		5rem,
+		4rem,
+		2.8rem,
+		3rem,
+		2.8rem,
+		2.4rem,
+	),
+	"phone": (
+		3.5rem,
+		3.5rem,
+		2rem,
+		3rem,
+		2.8rem,
+		2.4rem,
+	),
+);
+
+/* ----- Paragraph ----- */
+/* name use for media query `<${name}`. See `$breakpoints` variable for a possible key. */
+/* key use for class name. Example 'sm': 14px - create variable `--p-sm: 14px`; */
+$paragraph: (
+	"default": (
+		"default": 16px,
+	),
+	"tablet": (
+		"default": 14px,
+	),
+);
+
+/* ----- Container ----- */
+$gutter: 42px;
+$container: (
+	"default": 1354px,
+);
+
+/* ----- Grid ----- */
+$grid: (
+	"column": 12,
+	"gutter": 21px,
+	"breakpoints": (
+		"xs": "sm-phone",
+		"sm": "phone",
+		"md": "tablet",
+		"lg": "desktop",
+		"xl": "md-desktop",
+		"xxl": "xl",
+	),
+);
+
+/* ----- Buttons size ----- */
+
+/*  x - top/bottom padding
+ y - left/right padding
+ b - border
+ r - radius
+ fz - font-size */
+
+$btnsSize: (
+	"default": (
+		"default": (
+			"y": 15px,
+			"x": 15px,
+			"b": 1px,
+			"r": 0,
+			"fz": 14px,
+		),
+		/* if need other size button */
+		/* 'lg': ('y': 18px, 'x': 35px, 'b': 3px, 'r': 0, 'fz': 22px),,,,,, */
+	),
+	// "phone": (
+	// 	"default": (
+	// 		"y": 1rem,
+	// 		"x": 2rem,
+	// 		"b": 1px,
+	// 		"r": 3px,
+	// 		"fz": 13px,
+	// 	),
+	// ),
+);
+
+$inputSize: (
+	"default": (
+		"default": (
+			"y": 0.8rem,
+			"x": 0.7rem,
+			"b": 1px,
+			"r": 0,
+			"fz": 14px,
+		),
+		/* if need other size button */
+		/* 'lg': ('y': 18px, 'x': 35px, 'b': 3px, 'r': 0, 'fz': 22px),,,,,, */
+	),
+	"phone": (
+		"default": (
+			"y": 0,
+			"x": 0.7rem,
+			"b": 1px,
+			"r": 0,
+			"fz": 14px,
+		),
+	),
+);
+
+/* ----- Input padding left and right ----- */
+// $input-padding-x: map-get(map-get(map-get($btnsSize, "default"), "default"), "x");

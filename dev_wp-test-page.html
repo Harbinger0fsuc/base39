@@ -1,0 +1,19 @@
+@include("templates/general/head.html")
+@include("templates/wp-test-page/wp-test-page-head.html")
+	<title>Wordpress Test</title>
+</head>
+<body class="admin-bar">
+	<div class="wrapper">
+		@include("templates/general/header.html")
+		<main class="main">
+			<div class="container">
+				@include("templates/wp-test-page/wp-test-page-main.html")
+			</div>
+		</main>
+	</div>
+	@include("templates/wp-test-page/wp-test-page-admin-bar.html")
+	@include("templates/general/footer.html")
+	@include("templates/general/includes.html")
+	@include("templates/wp-test-page/wp-cookie-notice.html")
+</body>
+</html>

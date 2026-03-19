@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        
+        <loc>http://www.amazon.com/01-home.html</loc>
+    
+        
+        <lastmod>2026-03-19T11:23:09.110Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>http://www.amazon.com/02-page.html</loc>
+    
+        
+        <lastmod>2021-11-23T15:57:25.878Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>http://www.amazon.com/dev_wp-post-list.html</loc>
+    
+        
+        <lastmod>2021-08-09T10:37:47.752Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>http://www.amazon.com/dev_wp-single-post.html</loc>
+    
+        
+        <lastmod>2021-08-09T10:37:57.091Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>http://www.amazon.com/dev_wp-test-page.html</loc>
+    
+        
+        <lastmod>2021-08-09T10:38:04.280Z</lastmod>
+    
+    </url>
+</urlset>

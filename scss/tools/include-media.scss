@@ -1,0 +1,11 @@
+/* ----- Use local files ----- */
+@use "../base/variables" as vars;
+
+/* ----- Configure include media library -----  */
+@use "../vendors/include-media" with(
+	$breakpoints: vars.$breakpoints,
+	$media-expressions: vars.$media-expressions,
+);
+
+/* ----- Extend include media library -----  */
+@forward "../vendors/include-media";

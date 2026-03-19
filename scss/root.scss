@@ -1,0 +1,165 @@
+// ----------------------------------------------
+// ---------------- Root file including css custom properties -----------------
+// ----------------------------------------------
+
+/* ----- Use local files ----- */
+@use "base/variables" as vars;
+
+/* ----- Use built-in sass modules ----- */
+@use "sass:map";
+@use "sass:list";
+
+/* ----- Use different tools ----- */
+@use "./tools/include-media";
+
+:root {
+	/* ----- Base variable ----- */
+
+	/* ----- HTML style ----- */
+	--rem-base: 10px;
+
+	/* ----- Body style ----- */
+	--font-size-base: var(--p);
+	--line-height-base: 1.4;
+	--vertical-rhythm: calc(var(--line-height-base) * 1em);
+
+	/* ----- Colors ----- */
+	--bg-color-primary: var(--color-rust);
+	--bg-color-secondary: var(--color-moss);
+
+	--text-color-primary: var(--color-brown);
+	--text-color-secondary: var(--color-gray);
+	--text-color-accent: var(--bg-color-primary); /* The color inherits --bg-color-primary and used for text. So changing the bg color it's going to be changed. */
+	--h1-h6-color: var(--text-color-primary); /* Sometimes it inherits --text-color-accent; */
+	--base-link-color: ; /* Sometimes it inherits --text-color-accent; */
+	--link-hovered-color: ;
+
+	/* ----- Animation ----- */
+	--animation-duration: 0.3s;
+	--animation-timing-function: ease;
+
+	/* ----- Common Box Shadow ----- */
+	--shadow-size-common: 0px 5px 15px;
+	--shadow-color-common: rgba(0, 0, 0, 0.1);
+
+	/* ----- Common Border Radius ----- */
+	--radius-common: 4px;
+
+	/* ----- Css variable for padding-x input ----- */
+	// --input-x: #{$input-padding-x};
+
+	/* ----- Grid ----- */
+	--grid-gutter: #{map.get(vars.$grid, "gutter")};
+
+	/* ----- Gutter ----- */
+	--gutter: #{vars.$gutter};
+
+	@include include-media.media("iphoneX") {
+		/* increase paddings that content didn't disturb notch for landscape orientation https://twitter.com/i/status/907911237983449088 */
+		--gutter: 50px;
+	}
+
+	/* ----- Using cycle on scss map ----- */
+
+	/* ----- Color ----- */
+	@each $name, $color in vars.$colors-general {
+		--color-#{$name}: #{$color};
+	}
+
+	/* ----- Body ----- */
+	// @each $name, $color in $color-body {
+	// 	--color-#{$name}: #{$color};
+	// }
+
+	/* ----- Css variable for h1-h6 font-size ----- */
+	@each $name, $array in vars.$headers {
+		@if ($name == "default") {
+			@for $i from 1 through list.length($array) {
+				--h#{$i}: #{list.nth($array, $i)};
+			}
+		} @else {
+			@include include-media.media("<=#{$name}") {
+				@for $i from 1 through list.length($array) {
+					--h#{$i}: #{list.nth($array, $i)};
+				}
+			}
+		}
+	}
+
+	/* ----- Paragraphs ----- */
+	@each $name, $array in vars.$paragraph {
+		@if ($name == "default") {
+			@each $key, $value in $array {
+				@if ($key == "default") {
+					--p: #{$value};
+				} @else {
+					--p-#{$key}: #{$value};
+				}
+			}
+		} @else {
+			@include include-media.media("<=#{$name}") {
+				@each $key, $value in $array {
+					@if ($key == "default") {
+						--p: #{$value};
+					} @else {
+						--p-#{$key}: #{$value};
+					}
+				}
+			}
+		}
+	}
+
+	/* ----- Css variable for buttons size ----- */
+	@each $name, $array in vars.$btnsSize {
+		@if ($name == "default") {
+			@each $key, $arr in $array {
+				@each $prop, $value in $arr {
+					@if ($key == "default") {
+						--btn-#{$prop}: #{$value};
+					} @else {
+						--btn-#{$key}-#{$prop}: #{$value};
+					}
+				}
+			}
+		} @else {
+			@include include-media.media("<=#{$name}") {
+				@each $key, $arr in $array {
+					@each $prop, $value in $arr {
+						@if ($key == "default") {
+							--btn-#{$prop}: #{$value};
+						} @else {
+							--btn-#{$key}-#{$prop}: #{$value};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* ----- Css variable for input size ----- */
+	@each $name, $array in vars.$inputSize {
+		@if ($name == "default") {
+			@each $key, $arr in $array {
+				@each $prop, $value in $arr {
+					@if ($key == "default") {
+						--input-#{$prop}: #{$value};
+					} @else {
+						--input-#{$key}-#{$prop}: #{$value};
+					}
+				}
+			}
+		} @else {
+			@include include-media.media("<=#{$name}") {
+				@each $key, $arr in $array {
+					@each $prop, $value in $arr {
+						@if ($key == "default") {
+							--input-#{$prop}: #{$value};
+						} @else {
+							--input-#{$key}-#{$prop}: #{$value};
+						}
+					}
+				}
+			}
+		}
+	}
+}

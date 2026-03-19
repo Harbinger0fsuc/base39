@@ -1,0 +1,62 @@
+<!-- .head -->
+@include("templates/general/head.html")
+<!-- /.head -->
+<title>Don't forget to change tittle</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- .header -->
+		@include("templates/general/header.html")
+		<!-- /.header -->
+
+		<main class="main section-elevated">
+			<div class="container">
+				<div class="select-custom">
+					<label for="countrySelect" class="select-custom__label visually-hidden">Choose country</label>
+					<select name="countrySelect" id="countrySelect" class="select-custom__wrapper" data-custom-select="">
+						<option value="usa" class="select-custom_opt" selected="">USA (United states)</option>
+						<option value="eu" class="select-custom__opt">EURO</option>
+						<option value="cz" class="select-custom__opt">Czech Republic</option>
+						<option value="pl" class="select-custom__opt">Poland</option>
+						<option value="ro" class="select-custom__opt">Romania</option>
+					</select>
+				</div>
+				<ul class="grid-common" style="color: red;">
+					<li class="grid-common__col">
+						<article class="grid-common__item">
+							22111111111111111111
+						</article>
+					</li>
+					<li class="grid-common__col">
+						<article class="grid-common__item">
+							33222222222222222
+						</article>
+					</li>
+					<li class="grid-common__col">
+						<article class="grid-common__item">
+							333333333333333
+						</article>
+					</li>
+					<li class="grid-common__col">
+						<article class="grid-common__item">
+							4444444444444
+						</article>
+					</li>
+				</ul>
+				<input type="text" />
+				<button class="btn btn--primary">asd</button>
+				<div></div>
+			</div>
+		</main>
+
+		<!-- .footer -->
+		@include("templates/general/footer.html")
+		<!-- /.footer -->
+	</div>
+	<!-- .includes -->
+	@include("templates/general/includes.html")
+	<!-- /.includes -->
+</body>
+
+</html>
