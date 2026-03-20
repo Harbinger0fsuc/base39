@@ -132,7 +132,7 @@ const audienceAnimInit = () => {
 				scrub: 1,
 				pin: true,
 				invalidateOnRefresh: true,
-				pinSpacing: false,
+				pinSpacing: "margin",
 				pinType: "transform",
 				anticipatePin: 1,
 			});
