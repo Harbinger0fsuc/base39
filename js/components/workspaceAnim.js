@@ -43,7 +43,7 @@ const workspaceAnimInit = () => {
 			const workspaceAnimation = gsap.timeline();
 
 			workspaceAnimation.to(workspaceWrapper, {
-				maskSize: "170%",
+				maskSize: "200%",
 				duration: 2,
 				ease: "power1.in",
 			});
@@ -61,12 +61,12 @@ const workspaceAnimInit = () => {
 			ScrollTrigger.create({
 				animation: workspaceAnimation,
 				trigger: workspaceInner,
-				start: "-8% top",
-				end: "+=150%",
+				start: "-5% top",
+				end: "+=100%",
 				scrub: 1,
 				pin: true,
 				invalidateOnRefresh: true,
-				pinSpacing: true,
+				pinSpacing: false,
 				pinType: "transform",
 				anticipatePin: 1,
 			});

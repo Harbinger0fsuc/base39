@@ -3,6 +3,7 @@
 
 .audience {
 	background-color: var(--color-brown);
+	will-change: transform;
 
 	&__inner,
 	&__shapes {

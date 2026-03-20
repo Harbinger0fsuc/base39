@@ -127,12 +127,12 @@ const audienceAnimInit = () => {
 			ScrollTrigger.create({
 				animation: audienceAnimation,
 				trigger: audience,
-				start: "-8% top",
+				start: "-5% top",
 				end: "+=100%",
 				scrub: 1,
 				pin: true,
 				invalidateOnRefresh: true,
-				pinSpacing: true,
+				pinSpacing: false,
 				pinType: "transform",
 				anticipatePin: 1,
 			});
