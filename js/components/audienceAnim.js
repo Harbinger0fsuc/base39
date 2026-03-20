@@ -133,6 +133,8 @@ const audienceAnimInit = () => {
 				pin: true,
 				invalidateOnRefresh: true,
 				pinSpacing: true,
+				pinType: "transform",
+				anticipatePin: 1,
 			});
 		});
 	}

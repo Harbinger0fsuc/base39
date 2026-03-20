@@ -67,6 +67,8 @@ const workspaceAnimInit = () => {
 				pin: true,
 				invalidateOnRefresh: true,
 				pinSpacing: true,
+				pinType: "transform",
+				anticipatePin: 1,
 			});
 		});
 	}
