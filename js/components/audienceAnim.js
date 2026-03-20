@@ -127,7 +127,7 @@ const audienceAnimInit = () => {
 			ScrollTrigger.create({
 				animation: audienceAnimation,
 				trigger: audience,
-				start: "top top",
+				start: "-8% top",
 				end: "+=100%",
 				scrub: 1,
 				pin: true,

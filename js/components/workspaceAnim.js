@@ -61,7 +61,7 @@ const workspaceAnimInit = () => {
 			ScrollTrigger.create({
 				animation: workspaceAnimation,
 				trigger: workspaceInner,
-				start: "top top",
+				start: "-8% top",
 				end: "+=150%",
 				scrub: 1,
 				pin: true,
